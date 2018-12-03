@@ -3,7 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const User = require('./model/user.js');
 const History = require('./model/history.js');
+const cors = require('cors');
 var request = require('request');
+app.use(cors());
 app.use(express.static('static'));
 
 
