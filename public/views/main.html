@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.1/examples/cover/ -->
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="css/icon.png">
+
+    <title>Daily Horoscope for You</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/main.css" >
+
+  </head>
+
+  <body class="text-center">
+
+    <div class="content-wrapper">
+      <header class="masthead mb-auto">
+      </header>
+
+      <!--"aquarius", "pisces", "aries", "taurus", "gemini", "cancer",
+      "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn" -->
+      <!-- <main role="main" class="inner cover"> -->
+        <div class="navbar">
+        </div>
+
+        <div class="top-wrapper">
+          <div class="topp" style="width:100%">
+            <div class="row">
+              <div class="col">
+                <h1 style="margin-bottom:30px;" id="header_user"></h1>
+              </div>
+              <!-- <div class="col">
+                <h1>test</h1>
+              </div> -->
+            </div>
+            <h6>Today's date</h6>
+            <h6 id="date"></h6>
+          </div>
+        </div>
+        <div class="mid-wrapper">
+          <div style="width:50%;border:2px solid #fff;padding:20px">
+            <div class = "row">
+              <div class="col-4" style="height:100%;">
+                <img id="icon" style="width:75%;height:75%"></img>
+              </div>
+              <div class="col-8">
+                <p id = "description" style="font-size:20px"></p>
+              </div>
+            </div>
+            <div class = "row">
+              <div class="col">
+                <div class="row-4" style="padding-top:20px">
+                  <h6>Lucky Number</h6>
+                </div>
+                <div class="row-8">
+                  <h5 id="luckynum"></h5>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row-4" style="padding-top:20px">
+                  <h6>Compatibility</h6>
+                </div>
+                <div class="row-8">
+                  <img id="comp_icon" style="width:40%;height:40%;"></img>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row-4" style="padding-top:20px">
+                  <h6>Mood</h6>
+                </div>
+                <div class="row-8">
+                  <h5 id="mood"></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mid_btn-wrapper">
+          <div class="mid_btn">
+            <button id="btn-save" class="btn btn-lg" style="margin-top:20px">Save Data</button>
+          </div>
+        </div>
+      <div class="bot-wrapper">
+        <div id = "div_history" style="border:2px solid white; width:30%">
+          <!-- <div class="calendar" id="calendar-app">
+            <div class="calendar--day-view" id="day-view">
+              <span class="day-view-exit" id="day-view-exit">&times;</span>
+              <span class="day-view-date" id="day-view-date">MAY 29 2016</span>
+              <div class="day-view-content">
+                <div class="day-highlight">
+                  You <span class="day-events" id="day-events">had no events for today</span>. &nbsp; <span tabindex="0" onkeyup="if(event.keyCode != 13) return; this.click();" class="day-events-link" id="add-event" data-date></span>
+                </div>
+                <div class="day-add-event" id="add-day-event-box" data-active="false">
+                  <div class="row">
+                    <div class="half">
+                      <label class="add-event-label">
+                         Name of event
+                        <input type="text" class="add-event-edit add-event-edit--long" placeholder="New event" id="input-add-event-name">
+
+                      </label>
+                    </div>
+                    <div class="qtr">
+                      <label class="add-event-label">
+                    Start Time
+                        <input type="text" class="add-event-edit" placeholder="8:15" id="input-add-event-start-time" data-options="1,2,3,4,5,6,7,8,9,10,11,12" data-format="datetime">
+                        <input type="text" class="add-event-edit" placeholder="am" id="input-add-event-start-ampm" data-options="a,p,am,pm">
+                      </label>
+                    </div>
+                    <div class="qtr">
+                      <label class="add-event-label">
+                    End Time
+                        <input type="text" class="add-event-edit" placeholder="9" id="input-add-event-end-time" data-options="1,2,3,4,5,6,7,8,9,10,11,12" data-format="datetime">
+                        <input type="text" class="add-event-edit" placeholder="am" id="input-add-event-end-ampm" data-options="a,p,am,pm">
+                      </label>
+                    </div>
+                    <div class="half">
+                      <a onkeyup="if(event.keyCode != 13) return; this.click();" tabindex="0" id="add-event-save" class="event-btn--save event-btn">save</a>
+                      <a tabindex="0" id="add-event-cancel" class="event-btn--cancel event-btn">cancel</a>
+                    </div>
+                  </div>
+
+                </div>
+                <div id="day-events-list" class="day-events-list">
+
+                </div>
+                <div class="day-inspiration-quote" id="inspirational-quote">
+                  Every child is an artist.  The problem is how to remain an artist once he grows up. –Pablo Picasso
+                </div>
+              </div>
+            </div>
+            <div class="calendar--view" id="calendar-view">
+              <div class="cview__month">
+                <span class="cview__month-last" id="calendar-month-last">Apr</span>
+                <span class="cview__month-current" id="calendar-month">May</span>
+                <span class="cview__month-next" id="calendar-month-next">Jun</span>
+              </div>
+              <div class="cview__header">Sun</div>
+              <div class="cview__header">Mon</div>
+              <div class="cview__header">Tue</div>
+              <div class="cview__header">Wed</div>
+              <div class="cview__header">Thu</div>
+              <div class="cview__header">Fri</div>
+              <div class="cview__header">Sat</div>
+              <div class="calendar--view" id="dates">
+              </div>
+            </div>
+            <div class="footer">
+              <span><span id="footer-date" class="footer__link">Today is May 30</span></span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+
+      <footer class="mastfoot mt-auto">
+        <a href="/index.html" class="btn btn-secondary" style="margin-top:20px">Sign Out</a>
+      </footer>
+    </div>
+
+
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+
+
+</body></html>

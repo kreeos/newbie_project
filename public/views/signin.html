@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="css/icon.png">
+
+    <title>Daily Horoscope for You</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/signin.css" >
+
+    <!-- <script type="text/javascript" src="signin.js"></script> -->
+  </head>
+
+  <body>
+
+    <div class="content-wrapper" >
+      <div class="list-wrapper">
+        <!-- <div class="main"> -->
+
+          <h1>Sign In</h1><br>
+
+      </div>
+
+
+      <div class="form-wrapper">
+        <form method="POST" action="/api/v1/signin">
+
+          <div class="wrapper">
+
+            <div class="box"><div class="form_content"></div></div>
+            <div class="box">
+              <div class="form_content">ID             </div>
+              <div class="form_content">Password       </div>
+            </div>
+            <div class="box">
+              <div class="form_content"><input type='text' name='sign_id'/></div>
+              <div class="form_content"><input type='password' name='sign_password'/></div>
+            </div>
+            <div class="box"><div class="form_content"></div></div>
+          </div>
+
+          <button id='submit' class="btn btn-lg" type='submit'> Sign In </button>
+        </form>
+      </div>
+      <div class="foot-wrapper">
+        <div class="row-3">
+          <button onclick="retreive()" id="btn-retreive" class='btn' style="height:40px">Forgot ID/Password?</button>
+          <div id="retreive" style="display:none">
+            <strong>Too bad</strong>
+          </div>
+          <div class="row-3" style="margin-top:5%;">
+            <a href="/index.html" class="btn btn-secondary" style="width:100%"> Back to Main </a>
+          </div>
+        </div>
+      </div>
+
+        <script>
+          errormsg();
+          function errormsg(){
+            const url = window.location.href;
+            if(url.substring(url.length-5, url.length) === "error"){
+              window.alert("Sign In Failed. Please check ID and Password.");
+            }
+          }
+          function retreive(){
+            let message = document.getElementById("retreive");
+            let button = document.getElementById("btn-retreive");
+            message.style.display = "flex";
+            button.style.display = "none";
+          }
+        </script>
+
+
+
+    </div>
+
+  </body>
+</html>

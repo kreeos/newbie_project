@@ -1,0 +1,129 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  /* background-color: #9B59B6; */
+  background-image:url("orion.jpg");
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: right;
+  }
+}
+
+
+/*
+ * Cover
+ */
+.cover {
+  padding: 0 1.5rem;
+}
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+.cover .btn-mid {
+  padding: .55rem 1rem;
+  font-weight: 700;
+}
+
+.content-wrapper{
+  height:100%;
+  width:100%;
+
+  display: grid;
+  /* grid-template-rows: 60px calc(30% -40px) calc(70%-60px) 40px; */
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "navbar navbar navbar"
+                       "list list list"
+                       "form form form"
+                       "footer footer footer";
+}
+
+form{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: space-around;
+  height: 350px;
+  width: 550px;
+  /* border: 1px solid green; */
+}
+
+.form-wrapper{
+  grid-area:form;
+  display: flex;
+  justify-content: center;
+}
+
+.list-wrapper{
+  grid-area:list;
+  display:flex;
+  justify-content: center;
+}
+
+.foot-wrapper{
+  grid-area:footer;
+  display:flex;
+  justify-content: center;
+}
+.select_wrapper{
+  grid-area:footer;
+  display: flex;
+  justify-content: center;
+  width:100%
+}
+
+.wrapper{width:100%;margin-bottom:20px; height:100px;}
+.box{float:left;}
+.box:nth-child(1){
+   width:50%;
+}
+.box:nth-child(2){
+  width:50%;
+}
+
+.form_content{
+  height:40px;
+}
+
+.rbox{float:left; width:25%;}
+
+.choices{height:124px;width:85px}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.1/examples/cover/ -->
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="css/icon.png">
+
+    <title>Daily Horoscope for You</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/guest.css" >
+
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+      </header>
+
+      <!--"aquarius", "pisces", "aries", "taurus", "gemini", "cancer",
+      "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn" -->
+      <main role="main" class="inner cover">
+        <h1 style="margin-bottom:30px;">Welcome to Daily Horoscope.</h1>
+
+          <h4>Today's date</h4>
+        <div id="date" class = "row-3">
+
+        </div>
+          <div class = "row">
+            <div class="col p-5" id="aquarius">
+              <a>Aquarius</a><br>
+            </div>
+            <div class="col p-5" id="pisces">
+              <a>Pisces</a><br>
+            </div>
+          </div>
+          <div class = "row">
+            <div class="col p-5" id="aries">
+              <a>Aries</a><br>
+            </div>
+            <div class="col p-5" id="taurus">
+              <a>Taurus</a><br>
+            </div>
+          </div>
+          <div class = "row">
+            <div class="col p-5" id="gemini">
+              <a>Gemini</a><br>
+            </div>
+            <div class="col p-5" id="cancer">
+              <a>Cancer</a><br>
+            </div>
+          </div>
+          <div class = "row">
+            <div class="col p-5" id="leo">
+              <a>Leo</a><br>
+            </div>
+            <div class="col p-5" id="virgo">
+              <a>Virgo</a><br>
+            </div>
+          </div>
+          <div class = "row">
+            <div class="col p-5" id="libra">
+              <a>Libra</a><br>
+            </div>
+            <div class="col p-5" id="scorpio">
+              <a>Scorpio</a><br>
+            </div>
+          </div>
+          <div class = "row">
+            <div class="col p-5" id="sagittarius">
+              <a>Sagittarius</a><br>
+            </div>
+            <div class="col p-5" id="capricorn">
+              <a>Capricorn</a><br>
+            </div>
+          </div>
+          <div class="row col" style="justify-content:center">
+            <a class="btn btn-secondary" href="index.html">Back to main</a>
+          </div>
+        </div>
+
+
+
+        <script>
+        // const URL = 'https://aztro.sameerkumar.website/?sign=aries&day=today';
+        let temp = 0;
+        const prefix = 'https://aztro.sameerkumar.website/?sign=';
+        const postfix = '&day=today'
+        const charset = ["aquarius", "pisces", "aries", "taurus", "gemini", "cancer",
+        "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn"];
+        let turls = [];
+        for(let i = 0; i < 12; i++){
+          turls[i] = prefix+charset[i]+postfix;
+          // console.log(turls[i]);
+          fetch(turls[i], {
+              method: 'POST'
+          })
+          .then(response => response.json())
+          .then(json => {
+              if(temp == 0){
+                const date = json.current_date;
+                // console.log(date);
+                let top = document.getElementById("date");
+                let body = document.createTextNode(date);
+                top.appendChild(body);
+                temp =1;
+              }
+              // console.log(date);
+              let character = document.getElementById(charset[i]);
+              let para = document.createElement("p");
+              let img = document.createElement("img");
+              img.src = "images/icons/"+charset[i]+".png";
+              img.style.height = "100px";
+              img.style.width = "100px";
+              let text = document.createTextNode(json.description);
+              let range = document.createElement("p");
+              range.innerHTML = json.date_range;
+              para.appendChild(text);
+              character.appendChild(range);
+              character.appendChild(img);
+              character.appendChild(para);
+              // console.log(json.date_range);
+          });
+        }
+        </script>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="./Cover Template for Bootstrap_files/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="./Cover Template for Bootstrap_files/popper.min.js"></script>
+    <script src="./Cover Template for Bootstrap_files/bootstrap.min.js"></script> -->
+
+
+</body></html>

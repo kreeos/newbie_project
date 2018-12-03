@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="css/icon.png">
+
+    <title>Daily Horoscope for You</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/cover.css" >
+
+    <!-- <script type="text/javascript" src="register.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div class="content-wrapper" >
+      <div class="list-wrapper">
+        <!-- <div class="main"> -->
+
+          <h1> Registration Page</h1><br>
+
+      </div>
+
+
+      <div class="form-wrapper">
+        <form method="POST" action="/api/v1/register" style="height:600px">
+
+          <div class="wrapper">
+            <div class="box">
+              <div class="form_content">ID             </div>
+              <div class="form_content">Password       </div>
+              <div class="form_content">Check Password </div>
+            </div>
+            <div class="box">
+              <div class="form_content">
+                <input type='text' name='id' id="userid"/>
+
+              </div>
+              <div class="form_content"><input type='password' name='password'/></div>
+              <div class="form_content"><input type='password' name='cpassword'/></div>
+            </div>
+          </div>
+          <div class = "select_wrapper">
+              <div>
+                <center><p>Please Select your Horoscope</p></center>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope" value="aquarius" id="aquarius"> <img src ="images/regicons/aquarius.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope" value="pisces" id="pisces">  <img src ="images/regicons/pisces.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope" value="aries" id="aries">  <img src ="images/regicons/aries.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope" value="taurus" id="taurus">  <img src ="images/regicons/taurus.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope"  value="gemini" id="gemini">  <img src ="images/regicons/gemini.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope"  value="cancer" id="cancer">  <img src ="images/regicons/cancer.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope"  value="leo" id="leo">  <img src ="images/regicons/leo.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope"  value="virgo" id="virgo">  <img src ="images/regicons/virgo.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope"  value="libra" id="libra">  <img src ="images/regicons/libra.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope"  value="scorpio" id="scorpio">  <img src ="images/regicons/scorpio.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope"  value="sagittarius" id="sagittarius">  <img src ="images/regicons/sagittarius.png" class="choices"/></label>
+                </div>
+                <div class="radio rbox">
+                  <label><input type="radio" name="horoscope"  value="capricorn" id="capricorn">  <img src ="images/regicons/capricorn.png" class="choices"/></label>
+                </div>
+            </div>
+          </div>
+          <script>
+          function show_checked() {
+          	var obj = document.getElementsByName('horoscope');
+          	var checked_index = -1;
+          	var checked_value = '';
+          	for( i=0; i<obj.length; i++ ) {
+          		if(obj[i].checked) {
+          			checked_index = i;
+          			checked_value = obj[i].value;
+          		}
+          	}
+          }
+          </script>
+
+          <button id='form_submit' class="btn btn-mid" type='submit' onClick="show_checked()"> Register! </button>
+
+
+
+        </form>
+      </div>
+
+    </div>
+
+  </body>
+</html>
