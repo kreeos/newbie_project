@@ -135,7 +135,7 @@ app.get('/api/v1/load_history', (req, res) => {
   History.find({userid:userid}, (err, history) => {
     // console.log(history);
     return res.json(history);
-  })
+  }).sort({"date":-1})
 })
 
 

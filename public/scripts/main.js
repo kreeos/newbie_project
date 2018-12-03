@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   .then(function (response){
     console.log(response.data);
     for(let i = 0; i < response.data.length;i++){
+      console.log(response);
       const data = response.data[i];
       let wrapper = document.createElement("div");
       let text = document.createElement("a");
