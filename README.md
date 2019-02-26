@@ -1,8 +1,8 @@
 # newbie_project
 sparcs 신프
-_________________________________________________
-| Look up Your Daily Horoscope!                  |
-| Used API from aztro                            |
-| Guest Mode and Register Mode                   |
-| Sign in temporaily Made - Improvision Required |
-|________________________________________________|
+_________________________________________________    .\n
+| Look up Your Daily Horoscope!                  |   .\n
+| Used API from aztro                            |   .\n
+| Guest Mode and Register Mode                   |   .\n
+| Sign in temporaily Made - Improvision Required |   .\n
+|________________________________________________|   .\n
