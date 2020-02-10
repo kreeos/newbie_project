@@ -1,0 +1,199 @@
+<!------ Include the above in your HEAD tag ---------->
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+<script>
+  let turls = [];
+  const data = [];
+</script>
+
+<link rel="stylesheet" href="css/guest.css" >
+
+    <!-- Page Content -->
+  <div class="container page-top">
+
+    <center>
+      <h1 class="guest-title" style="margin-bottom:5vh;">Choose Your Horoscope.</h1>
+    </center>
+        <div class="row">
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <a onclick="query(0)" data-toggle="modal" href="#myModal" class="fadeIn first" rel="ligthbox">
+                  <b>Aquarius</b><br>
+                  Jan 20 - Feb 18
+                  <img src="images/icons/aquarius.png" class="zoom img-fluid"/>
+                </a>
+            </div>
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <a onclick="query(2)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                  <b>Aries</b><br>
+                  Feb 19 - Mar 20
+                  <img src="images/icons/aries.png" class="zoom img-fluid"/>
+                </a>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <a onclick="query(5)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                  <b>Cancer</b><br>
+                  Mar 21 - Apr 20
+                  <img src="images/icons/cancer.png" class="zoom img-fluid"/>
+                </a>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <a onclick="query(11)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                  <b>Capricorn</b><br>
+                  Apr 21 - May 20
+                  <img src="images/icons/capricorn.png" class="zoom img-fluid"/>
+                </a>
+            </div>
+
+             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+                <a onclick="query(4)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                  <b>Gemini</b><br>
+                  May 21 - Jun 21
+                  <img src="images/icons/gemini.png" class="zoom img-fluid"/>
+                </a>
+            </div>
+
+             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+               <a onclick="query(6)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                  <b>Leo</b><br>
+                  Jun 22 - Jul 22
+                  <img src="images/icons/leo.png" class="zoom img-fluid"/>
+                </a>
+            </div>
+
+             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+               <a onclick="query(8)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                  <b>Libra</b><br>
+                  Jul 23 - Aug 22
+                  <img src="images/icons/libra.png" class="zoom img-fluid"/>
+                </a>
+            </div>
+
+             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+               <a onclick="query(1)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                  <b>Pisces</b><br>
+                  Aug 23 - Sep 22
+                  <img src="images/icons/pisces.png" class="zoom img-fluid"/>
+                </a>
+            </div>
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <a onclick="query(10)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                <b>Sagittarius</b><br>
+                Sep 23 - Oct 22
+                <img src="images/icons/sagittarius.png" class="zoom img-fluid"/>
+              </a>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <a onclick="query(9)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                <b>Scorpio</b><br>
+                Oct 23 - Nov 22
+                <img src="images/icons/scorpio.png" class="zoom img-fluid"/>
+              </a>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <a onclick="query(3)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                <b>Taurus</b><br>
+                Nov 23 - Dec 21
+                <img src="images/icons/taurus.png" class="zoom img-fluid"/>
+              </a>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <a onclick="query(7)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+                <b>Virgo</b><br>
+                Dec 22 - Jan 19
+                <img src="images/icons/virgo.png" class="zoom img-fluid"/>
+              </a>
+            </div>
+       </div>
+       <div class="container">
+	<div class="row">
+
+
+	<div id="myModal" class="modal fade in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+                    <h4 id="date" class="modal-title"></h4>
+                </div>
+                <div id="body" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group">
+                        <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                        <button class="btn btn-primary"><span class="glyphicon glyphicon-check"></span> Save</button>
+                    </div>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dalog -->
+    </div><!-- /.modal -->
+
+	</div>
+</div>
+
+<script>
+// const URL = 'https://aztro.sameerkumar.website/?sign=aries&day=today';
+function preload() {
+  const prefix = 'https://aztro.sameerkumar.website/?sign=';
+  const postfix = '&day=today'
+  const charset = ["aquarius", "pisces", "aries", "taurus", "gemini", "cancer",
+  "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn"];
+  for (let j = 0; j<12; j++){
+    turls[j] = prefix+charset[j]+postfix;
+    fetch(turls[j], {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(json => {
+      data.push(json);
+    });
+  }
+}
+
+preload();
+
+function query(i) {
+  const charset = ["aquarius", "pisces", "aries", "taurus", "gemini", "cancer",
+  "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn"];
+  const json = data[i];
+  const date = json.current_date;
+  let top = document.getElementById("date");
+  let body = document.createTextNode(date);
+  top.appendChild(body);
+  let character = document.getElementById("body");
+  let para = document.createElement("p");
+  let img = document.createElement("img");
+  img.src = "images/icons/"+charset[i]+".png";
+  img.style.height = "100px";
+  img.style.width = "100px";
+  let text = document.createTextNode(json.description);
+  let range = document.createElement("p");
+  range.innerHTML = json.date_range;
+  para.appendChild(text);
+  character.appendChild(range);
+  character.appendChild(img);
+  character.appendChild(para);
+}
+
+$('#myModal').on('hidden.bs.modal', function (e) {
+  let top = document.getElementById("date");
+  top.innerHTML = "";
+  let character = document.getElementById("body");
+  character.innerHTML = "";
+})
+
+</script>
+
+
+    </div>

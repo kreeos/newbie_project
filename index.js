@@ -8,6 +8,7 @@ var request = require('request');
 app.use(cors());
 app.use(express.static('static'));
 
+const API_PORT = 3000;
 
 app.set('views','/Users/krislee/Documents/SPARCS/newbie/public/views');
 
@@ -23,13 +24,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //database connection
-const mongoose = require('mongoose');
-const db = mongoose.connection;
-db.on('error', console.error);
-db.once('open', () => {
-    console.log("Connected to MongoDB server");
-});
-mongoose.connect('mongodb://localhost/newbie')
+// const mongoose = require('mongoose');
+// const db = mongoose.connection;
+// db.on('error', console.error);
+// db.once('open', () => {
+//     console.log("Connected to MongoDB server");
+// });
+// mongoose.connect('mongodb://localhost/newbie')
 
 
 
@@ -143,6 +144,6 @@ app.get('/api/v1/load_history', (req, res) => {
 
 
 
-const server = app.listen(8000,() =>{
+const server = app.listen(API_PORT,() =>{
   console.log('Server is running at http://localhost:8000')
 })

@@ -6,6 +6,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="css/icon.png">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <title>Daily Horoscope for You</title>
 
@@ -20,16 +23,16 @@
 
   <body>
 
-    <div class="content-wrapper" >
-      <div class="list-wrapper">
-        <!-- <div class="main"> -->
+    <!-- <div class="content-wrapper" > -->
+      <!-- <div class="list-wrapper"> -->
+        <!-- <div> -->
 
-          <h1>Sign In</h1><br>
+          <!-- <h1>Sign In</h1><br> -->
+        <!-- </div> -->
+      <!-- </div> -->
 
-      </div>
 
-
-      <div class="form-wrapper">
+      <!-- <div class="form-wrapper">
         <form method="POST" action="/api/v1/signin">
 
           <div class="wrapper">
@@ -48,8 +51,33 @@
 
           <button id='submit' class="btn btn-lg" type='submit'> Sign In </button>
         </form>
+      </div> -->
+
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <!-- <img src="/images/icon.png" style="width:10%;" id="icon" alt="User Icon" /> daily horoscope -->
+            <a>Sign In</a>
+          </div>
+
+          <!-- Login Form -->
+          <form style="width:100%">
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+          </form>
+
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" onclick="retreive()">Forgot Password?</a>
+          </div>
+
+        </div>
       </div>
-      <div class="foot-wrapper">
+      <!-- <div class="foot-wrapper">
         <div class="row-3">
           <button onclick="retreive()" id="btn-retreive" class='btn' style="height:40px">Forgot ID/Password?</button>
           <div id="retreive" style="display:none">
@@ -59,7 +87,7 @@
             <a href="/index.html" class="btn btn-secondary" style="width:100%"> Back to Main </a>
           </div>
         </div>
-      </div>
+      </div> -->
 
         <script>
           errormsg();
@@ -70,16 +98,17 @@
             }
           }
           function retreive(){
-            let message = document.getElementById("retreive");
-            let button = document.getElementById("btn-retreive");
-            message.style.display = "flex";
-            button.style.display = "none";
+            window.alert("Sorry. This function has not been developed yet.")
+            // let button = document.getElementById("btn-retreive");
+            // let message = document.getElementById("retreive");
+            // message.style.display = "flex";
+            // button.style.display = "none";
           }
         </script>
 
 
 
-    </div>
+    <!-- </div> -->
 
   </body>
 </html>
