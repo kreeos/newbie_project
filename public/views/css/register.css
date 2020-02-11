@@ -1,0 +1,38 @@
+@media(min-width: 768px) {
+  .field-label-responsive {
+    padding-top: .5rem;
+    text-align: right;
+  }
+}
+
+body {
+  height: 100%;
+  background-color: #f1f1f1;
+  background-image:url("orion.jpg");
+  display: -ms-flexbox;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  font-family: "Asap", sans-serif;
+  color:#ffffff;
+  margin:10px;
+  font-size:16px;
+}
+
+a {
+  color: #ffffff;
+}
+
+.btn-register {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.btn-register-lg {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1rem;
+  padding: 20px;
+}
+
+.thumb {
+  margin-bottom: 3%;
+}

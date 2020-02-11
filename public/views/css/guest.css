@@ -27,7 +27,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  /* background-color: #9B59B6; */
+  background-color: #f1f1f1;
   background-image:url("orion.jpg");
 }
 
@@ -44,7 +44,6 @@ body {
 }
 
 body {
-  background-color:#1d1d1d !important;
   font-family: "Asap", sans-serif;
   color:#989898;
   margin:10px;
@@ -162,4 +161,71 @@ img.zoom {
   -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
   animation-delay: 1s;
+}
+
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  transition: 1s;
+  background-color: #707070;
+  opacity: 0.9;
+}
+.span{
+  position: absolute;
+  transform: translate(-50%, 50%);
+  width: 120px;
+  height: 120px;
+  top: 35%;
+  border: 5px solid #262626;
+  z-index: 1;
+  animation: animar 2.5s linear infinite;
+}
+.span:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #262626;
+  animation: animarbg 2.5s linear infinite;
+}
+
+@keyframes animar {
+    0% {
+        transform: translate(-50%, 50%) rotate(0deg);
+    }
+    25% {
+        transform: translate(-50%, 50%) rotate(180deg);
+    }
+    50% {
+        transform: translate(-50%, 50%) rotate(180deg);
+    }
+    75% {
+        transform: translate(-50%, 50%) rotate(360deg);
+    }
+    100% {
+        transform: translate(-50%, 50%) rotate(360deg);
+    }
+}
+@keyframes animarbg {
+    0% {
+        height: 0;
+    }
+    25% {
+        height: 0;
+    }
+    50% {
+        height: 100%;
+    }
+    75% {
+        height: 100%;
+    }
+    100% {
+        height: 0;
+    }
 }

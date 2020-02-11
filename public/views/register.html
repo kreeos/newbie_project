@@ -1,116 +1,210 @@
-<html>
-  <head>
-    <html lang="en"><head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="css/icon.png">
+<!------ Include the above in your HEAD tag ---------->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
-    <title>Daily Horoscope for You</title>
+<link rel="stylesheet" href="css/test.css" >
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<script>
+  let is_mobile;
+  (window.screen.width < 800) ? is_mobile = true : is_mobile = false;
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="css/cover.css" >
+  window.addEventListener('DOMContentLoaded', (event) => {
+      if (is_mobile) {
+        const home_icon = document.getElementById("home");
+        home_icon.style.height = "5vw";
+        const reg_btn = document.getElementById("register");
+        reg_btn.style.padding="15px 40px"
+        reg_btn.style.borderRadius="10px"
+        reg_btn.style.marginTop="5%"
+      }
+  });
+</script>
 
-    <!-- <script type="text/javascript" src="register.js"></script> -->
+<div style="width:100%;">
 
-  </head>
+    <!-- Page Content -->
+  <div class="container page-top">
 
-  <body>
-
-    <div class="content-wrapper" >
-      <div class="list-wrapper">
-        <!-- <div class="main"> -->
-
-          <h1> Registration Page</h1><br>
-
-      </div>
-
-
-      <div class="form-wrapper">
-        <form method="POST" action="/api/v1/register" style="height:600px">
-
-          <div class="wrapper">
-            <div class="box">
-              <div class="form_content">ID             </div>
-              <div class="form_content">Password       </div>
-              <div class="form_content">Check Password </div>
-            </div>
-            <div class="box">
-              <div class="form_content">
-                <input type='text' name='id' id="userid"/>
-
-              </div>
-              <div class="form_content"><input type='password' name='password'/></div>
-              <div class="form_content"><input type='password' name='cpassword'/></div>
-            </div>
-          </div>
-          <div class = "select_wrapper">
-              <div>
-                <center><p>Please Select your Horoscope</p></center>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope" value="aquarius" id="aquarius"> <img src ="images/regicons/aquarius.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope" value="pisces" id="pisces">  <img src ="images/regicons/pisces.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope" value="aries" id="aries">  <img src ="images/regicons/aries.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope" value="taurus" id="taurus">  <img src ="images/regicons/taurus.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope"  value="gemini" id="gemini">  <img src ="images/regicons/gemini.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope"  value="cancer" id="cancer">  <img src ="images/regicons/cancer.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope"  value="leo" id="leo">  <img src ="images/regicons/leo.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope"  value="virgo" id="virgo">  <img src ="images/regicons/virgo.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope"  value="libra" id="libra">  <img src ="images/regicons/libra.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope"  value="scorpio" id="scorpio">  <img src ="images/regicons/scorpio.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope"  value="sagittarius" id="sagittarius">  <img src ="images/regicons/sagittarius.png" class="choices"/></label>
-                </div>
-                <div class="radio rbox">
-                  <label><input type="radio" name="horoscope"  value="capricorn" id="capricorn">  <img src ="images/regicons/capricorn.png" class="choices"/></label>
-                </div>
-            </div>
-          </div>
-          <script>
-          function show_checked() {
-          	var obj = document.getElementsByName('horoscope');
-          	var checked_index = -1;
-          	var checked_value = '';
-          	for( i=0; i<obj.length; i++ ) {
-          		if(obj[i].checked) {
-          			checked_index = i;
-          			checked_value = obj[i].value;
-          		}
-          	}
-          }
-          </script>
-
-          <button id='form_submit' class="btn btn-mid" type='submit' onClick="show_checked()"> Register! </button>
-
-
-
-        </form>
-      </div>
-
+    <div style="text-align:center">
+      <a href="/index.html">
+          <img id="home" style="width:auto; height:5vh; margin:30px" src="images/zodiac_icon.png"/>
+      </a>
     </div>
+    <div class="container" style="align-items:center">
+        <form class="form" role="form" method="POST" action="/register">
+            <div class="row">
+                <div class="col" style="text-align:center">
+                    <h2>Register New User</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row" style="">
+                <div class="col-md-2 field-label-responsive">
+                </div>
+                <div class="col-md-2 field-label-responsive" style="text-align:left">
+                    <label for="name">ID</label>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                            <input type="text" name="name" class="form-control" id="name"
+                                   placeholder="ID" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 field-label-responsive">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 field-label-responsive">
+                </div>
+                <div class="col-md-2 field-label-responsive" style="text-align:left">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col">
+                    <div class="form-group has-danger">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                            <input type="password" name="password" class="form-control" id="password"
+                                   placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 field-label-responsive">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 field-label-responsive">
+                </div>
+                <div class="col-md-2 field-label-responsive" style="text-align:left">
+                    <label for="password">Confirm Password</label>
+                </div>
+                <div class="col-md">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem">
+                                <i class="fa fa-repeat"></i>
+                            </div>
+                            <input type="password" name="password-confirmation" class="form-control"
+                                   id="password-confirm" placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 field-label-responsive">
+                </div>
+            </div>
 
-  </body>
-</html>
+    <center>
+      <h4 class="guest-title" style="margin-bottom:5%; margin-top:3%;">Choose Your Horoscope.</h4>
+    </center>
+        <div class="row">
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <a onclick="query(0)" data-toggle="modal" href="#horoscope" rel="ligthbox">
+                  <b>Aquarius</b><br/>
+                  Jan 20 - Feb 18
+                  <img src="images/icons/aquarius.png" class="zoom img-fluid"/>
+                </a>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope" value="pisces" id="pisces">
+                  <b>Pisces</b><br>
+                  Feb 19 - Mar 20
+                  <img src="images/icons/pisces.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope" value="aries" id="aries">
+                <b>Aries</b><br/>
+                Mar 21 - Apr 20
+                <img src="images/icons/aries.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope" value="taurus" id="taurus">
+                <b>Taurus</b><br>
+                Apr 21 - May 20
+                <img src="images/icons/taurus.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="gemini" id="gemini">
+                  <b>Gemini</b><br>
+                  May 21 - Jun 21
+                  <img src="images/icons/gemini.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="cancer" id="cancer">
+                  <b>Cancer</b><br>
+                  Jun 22 - Jul 22
+                  <img src="images/icons/cancer.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="leo" id="leo">
+                <b>Leo</b><br>
+                Jul 23 - Aug 22
+                <img src="images/icons/leo.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="virgo" id="virgo">
+                <b>Virgo</b><br>
+                Aug 23 - Sep 22
+                <img src="images/icons/virgo.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="libra" id="libra">
+                  <b>Libra</b><br>
+                  Sep 23 - Oct 22
+                  <img src="images/icons/libra.png" class="zoom img-fluid"/>
+                </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="scorpio" id="scorpio">
+                <b>Scorpio</b><br>
+                Oct 23 - Nov 22
+                <img src="images/icons/scorpio.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="sagittarius" id="sagittarius">
+                <b>Sagittarius</b><br>
+                Nov 23 - Dec 21
+                <img src="images/icons/sagittarius.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label>
+                <input type="radio" name="horoscope"  value="capricorn" id="capricorn">
+                  <b>Capricorn</b><br>
+                  Dec 22 - Jan 19
+                  <img src="images/icons/capricorn.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+          </div>
+        </form>
+
+        <div class="row">
+            <div class="col" style="text-align:center">
+                <button id="register" type="submit" style="margin-top:20px; margin-bottom:5%" class="btn btn-register"><i class="fa fa-user-plus"></i> Register</button>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,199 +1,210 @@
 <!------ Include the above in your HEAD tag ---------->
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
+<link rel="stylesheet" href="css/test.css" >
+
 <script>
-  let turls = [];
-  const data = [];
+  let is_mobile;
+  (window.screen.width < 800) ? is_mobile = true : is_mobile = false;
+
+  window.addEventListener('DOMContentLoaded', (event) => {
+      if (is_mobile) {
+        const home_icon = document.getElementById("home");
+        home_icon.style.height = "5vw";
+        const reg_btn = document.getElementById("register");
+        reg_btn.style.padding="15px 40px"
+        reg_btn.style.borderRadius="10px"
+        reg_btn.style.marginTop="5%"
+      }
+  });
 </script>
 
-<link rel="stylesheet" href="css/guest.css" >
+<div style="width:100%;">
 
     <!-- Page Content -->
   <div class="container page-top">
 
+    <div style="text-align:center">
+      <a href="/index.html">
+          <img id="home" style="width:auto; height:5vh; margin:30px" src="images/zodiac_icon.png"/>
+      </a>
+    </div>
+    <div class="container" style="align-items:center">
+        <form class="form" role="form" method="POST" action="/register">
+            <div class="row">
+                <div class="col" style="text-align:center">
+                    <h2>Register New User</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row" style="">
+                <div class="col-md-2 field-label-responsive">
+                </div>
+                <div class="col-md-2 field-label-responsive" style="text-align:left">
+                    <label for="name">ID</label>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                            <input type="text" name="name" class="form-control" id="name"
+                                   placeholder="ID" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 field-label-responsive">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 field-label-responsive">
+                </div>
+                <div class="col-md-2 field-label-responsive" style="text-align:left">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col">
+                    <div class="form-group has-danger">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                            <input type="password" name="password" class="form-control" id="password"
+                                   placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 field-label-responsive">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 field-label-responsive">
+                </div>
+                <div class="col-md-2 field-label-responsive" style="text-align:left">
+                    <label for="password">Confirm Password</label>
+                </div>
+                <div class="col-md">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem">
+                                <i class="fa fa-repeat"></i>
+                            </div>
+                            <input type="password" name="password-confirmation" class="form-control"
+                                   id="password-confirm" placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 field-label-responsive">
+                </div>
+            </div>
+
     <center>
-      <h1 class="guest-title" style="margin-bottom:5vh;">Choose Your Horoscope.</h1>
+      <h4 class="guest-title" style="margin-bottom:5%; margin-top:3%;">Choose Your Horoscope.</h4>
     </center>
         <div class="row">
 
             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-              <a onclick="query(0)" data-toggle="modal" href="#myModal" class="fadeIn first" rel="ligthbox">
-                  <b>Aquarius</b><br>
+              <a onclick="query(0)" data-toggle="modal" href="#horoscope" rel="ligthbox">
+                  <b>Aquarius</b><br/>
                   Jan 20 - Feb 18
                   <img src="images/icons/aquarius.png" class="zoom img-fluid"/>
                 </a>
             </div>
+
             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-              <a onclick="query(2)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
-                  <b>Aries</b><br>
+              <label><input type="radio" name="horoscope" value="pisces" id="pisces">
+                  <b>Pisces</b><br>
                   Feb 19 - Mar 20
-                  <img src="images/icons/aries.png" class="zoom img-fluid"/>
-                </a>
+                  <img src="images/icons/pisces.png" class="zoom img-fluid"/>
+              </label>
             </div>
 
             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-              <a onclick="query(5)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
-                  <b>Cancer</b><br>
-                  Mar 21 - Apr 20
-                  <img src="images/icons/cancer.png" class="zoom img-fluid"/>
-                </a>
+              <label><input type="radio" name="horoscope" value="aries" id="aries">
+                <b>Aries</b><br/>
+                Mar 21 - Apr 20
+                <img src="images/icons/aries.png" class="zoom img-fluid"/>
+              </label>
             </div>
 
             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-              <a onclick="query(11)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
-                  <b>Capricorn</b><br>
-                  Apr 21 - May 20
-                  <img src="images/icons/capricorn.png" class="zoom img-fluid"/>
-                </a>
+              <label><input type="radio" name="horoscope" value="taurus" id="taurus">
+                <b>Taurus</b><br>
+                Apr 21 - May 20
+                <img src="images/icons/taurus.png" class="zoom img-fluid"/>
+              </label>
             </div>
 
-             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-                <a onclick="query(4)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="gemini" id="gemini">
                   <b>Gemini</b><br>
                   May 21 - Jun 21
                   <img src="images/icons/gemini.png" class="zoom img-fluid"/>
-                </a>
+              </label>
             </div>
 
-             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-               <a onclick="query(6)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
-                  <b>Leo</b><br>
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="cancer" id="cancer">
+                  <b>Cancer</b><br>
                   Jun 22 - Jul 22
-                  <img src="images/icons/leo.png" class="zoom img-fluid"/>
-                </a>
+                  <img src="images/icons/cancer.png" class="zoom img-fluid"/>
+              </label>
             </div>
 
-             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-               <a onclick="query(8)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="leo" id="leo">
+                <b>Leo</b><br>
+                Jul 23 - Aug 22
+                <img src="images/icons/leo.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="virgo" id="virgo">
+                <b>Virgo</b><br>
+                Aug 23 - Sep 22
+                <img src="images/icons/virgo.png" class="zoom img-fluid"/>
+              </label>
+            </div>
+
+            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
+              <label><input type="radio" name="horoscope"  value="libra" id="libra">
                   <b>Libra</b><br>
-                  Jul 23 - Aug 22
+                  Sep 23 - Oct 22
                   <img src="images/icons/libra.png" class="zoom img-fluid"/>
-                </a>
-            </div>
-
-             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-               <a onclick="query(1)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
-                  <b>Pisces</b><br>
-                  Aug 23 - Sep 22
-                  <img src="images/icons/pisces.png" class="zoom img-fluid"/>
-                </a>
-            </div>
-            <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-              <a onclick="query(10)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
-                <b>Sagittarius</b><br>
-                Sep 23 - Oct 22
-                <img src="images/icons/sagittarius.png" class="zoom img-fluid"/>
-              </a>
+                </label>
             </div>
 
             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-              <a onclick="query(9)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
+              <label><input type="radio" name="horoscope"  value="scorpio" id="scorpio">
                 <b>Scorpio</b><br>
                 Oct 23 - Nov 22
                 <img src="images/icons/scorpio.png" class="zoom img-fluid"/>
-              </a>
+              </label>
             </div>
-
             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-              <a onclick="query(3)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
-                <b>Taurus</b><br>
+              <label><input type="radio" name="horoscope"  value="sagittarius" id="sagittarius">
+                <b>Sagittarius</b><br>
                 Nov 23 - Dec 21
-                <img src="images/icons/taurus.png" class="zoom img-fluid"/>
-              </a>
+                <img src="images/icons/sagittarius.png" class="zoom img-fluid"/>
+              </label>
             </div>
-
             <div style="text-align:center" class="col-lg-2 col-md-4 col-xs-6 thumb">
-              <a onclick="query(7)" data-toggle="modal" href="#myModal" class="" rel="ligthbox">
-                <b>Virgo</b><br>
-                Dec 22 - Jan 19
-                <img src="images/icons/virgo.png" class="zoom img-fluid"/>
-              </a>
+              <label>
+                <input type="radio" name="horoscope"  value="capricorn" id="capricorn">
+                  <b>Capricorn</b><br>
+                  Dec 22 - Jan 19
+                  <img src="images/icons/capricorn.png" class="zoom img-fluid"/>
+              </label>
             </div>
-       </div>
-       <div class="container">
-	<div class="row">
+          </div>
+        </form>
 
-
-	<div id="myModal" class="modal fade in">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
-                    <h4 id="date" class="modal-title"></h4>
-                </div>
-                <div id="body" class="modal-body">
-                </div>
-                <div class="modal-footer">
-                    <div class="btn-group">
-                        <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                        <button class="btn btn-primary"><span class="glyphicon glyphicon-check"></span> Save</button>
-                    </div>
-                </div>
-
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dalog -->
-    </div><!-- /.modal -->
-
-	</div>
-</div>
-
-<script>
-// const URL = 'https://aztro.sameerkumar.website/?sign=aries&day=today';
-function preload() {
-  const prefix = 'https://aztro.sameerkumar.website/?sign=';
-  const postfix = '&day=today'
-  const charset = ["aquarius", "pisces", "aries", "taurus", "gemini", "cancer",
-  "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn"];
-  for (let j = 0; j<12; j++){
-    turls[j] = prefix+charset[j]+postfix;
-    fetch(turls[j], {
-        method: 'POST'
-    })
-    .then(response => response.json())
-    .then(json => {
-      data.push(json);
-    });
-  }
-}
-
-preload();
-
-function query(i) {
-  const charset = ["aquarius", "pisces", "aries", "taurus", "gemini", "cancer",
-  "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn"];
-  const json = data[i];
-  const date = json.current_date;
-  let top = document.getElementById("date");
-  let body = document.createTextNode(date);
-  top.appendChild(body);
-  let character = document.getElementById("body");
-  let para = document.createElement("p");
-  let img = document.createElement("img");
-  img.src = "images/icons/"+charset[i]+".png";
-  img.style.height = "100px";
-  img.style.width = "100px";
-  let text = document.createTextNode(json.description);
-  let range = document.createElement("p");
-  range.innerHTML = json.date_range;
-  para.appendChild(text);
-  character.appendChild(range);
-  character.appendChild(img);
-  character.appendChild(para);
-}
-
-$('#myModal').on('hidden.bs.modal', function (e) {
-  let top = document.getElementById("date");
-  top.innerHTML = "";
-  let character = document.getElementById("body");
-  character.innerHTML = "";
-})
-
-</script>
-
-
+        <div class="row">
+            <div class="col" style="text-align:center">
+                <button id="register" type="submit" style="margin-top:20px; margin-bottom:5%" class="btn btn-register"><i class="fa fa-user-plus"></i> Register</button>
+            </div>
+        </div>
+      </div>
     </div>
+</div>
