@@ -21,6 +21,25 @@
         reg_btn.style.marginTop="5%"
       }
   });
+
+  // console.log(window.location.search);
+  if (window.location.search.includes("fail")) {
+    window.alert("Password and the confirmation do not match.");
+    window.location.href="http://aria.sparcs.org:11080/register.html"
+  }
+  if (window.location.search.includes("error")) {
+    window.alert("Error has occurred. Please try again.");
+    window.location.href="http://aria.sparcs.org:11080/register.html"
+  }
+  if (window.location.search.includes("success")) {
+    window.alert("Successfully registered. Please sign in.");
+    window.location.href="http://aria.sparcs.org:11080/index.html"
+  }
+  if (window.location.search.includes("exist")) {
+    window.alert("Id already exists. Please try again.");
+    window.location.href="http://aria.sparcs.org:11080/register.html"
+  }
+
 </script>
 
 <div style="width:100%;">
@@ -34,7 +53,7 @@
       </a>
     </div>
     <div class="container" style="align-items:center">
-        <form class="form" role="form" method="POST" action="/register">
+        <form class="form" role="form" method="POST" action="http://aria.sparcs.org:11808/api/register">
             <div class="row">
                 <div class="col" style="text-align:center">
                     <h2>Register New User</h2>
@@ -89,8 +108,8 @@
                             <div class="input-group-addon" style="width: 2.6rem">
                                 <i class="fa fa-repeat"></i>
                             </div>
-                            <input type="password" name="password-confirmation" class="form-control"
-                                   id="password-confirm" placeholder="Password" required>
+                            <input type="password" name="confirmation" class="form-control"
+                                   id="confirm" placeholder="Password" required>
                         </div>
                     </div>
                 </div>
@@ -198,13 +217,13 @@
               </label>
             </div>
           </div>
-        </form>
 
         <div class="row">
             <div class="col" style="text-align:center">
                 <button id="register" type="submit" style="margin-top:20px; margin-bottom:5%" class="btn btn-register"><i class="fa fa-user-plus"></i> Register</button>
             </div>
         </div>
+      </form>
       </div>
     </div>
 </div>

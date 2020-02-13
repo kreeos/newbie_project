@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://getbootstrap.com/docs/4.1/examples/cover/ -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <html lang="en"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,158 +20,151 @@
 
   </head>
 
+  <script>
+    let is_mobile;
+    (window.screen.width < 800) ? is_mobile = true : is_mobile = false;
+
+    const params = new URL(location.href).searchParams;
+    const id = params.get('id');
+    const sign = params.get('sign');
+
+  </script>
+
   <body class="text-center">
 
-    <div class="content-wrapper">
-      <header class="masthead mb-auto">
-      </header>
+    <div class="container page-top">
 
-      <!--"aquarius", "pisces", "aries", "taurus", "gemini", "cancer",
-      "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn" -->
-      <!-- <main role="main" class="inner cover"> -->
-        <div class="navbar">
-        </div>
-
-        <div class="top-wrapper">
-          <div class="topp" style="width:100%">
-            <div class="row">
-              <div class="col">
-                <h1 style="margin-bottom:30px;" id="header_user"></h1>
-              </div>
-              <!-- <div class="col">
-                <h1>test</h1>
-              </div> -->
-            </div>
-            <h6>Today's date</h6>
-            <h6 id="date"></h6>
-          </div>
-        </div>
-        <div class="mid-wrapper">
-          <div style="width:50%;border:2px solid #fff;padding:20px">
-            <div class = "row">
-              <div class="col-4" style="height:100%;">
-                <img id="icon" style="width:75%;height:75%"></img>
-              </div>
-              <div class="col-8">
-                <p id = "description" style="font-size:20px"></p>
-              </div>
-            </div>
-            <div class = "row">
-              <div class="col">
-                <div class="row-4" style="padding-top:20px">
-                  <h6>Lucky Number</h6>
-                </div>
-                <div class="row-8">
-                  <h5 id="luckynum"></h5>
-                </div>
-              </div>
-              <div class="col">
-                <div class="row-4" style="padding-top:20px">
-                  <h6>Compatibility</h6>
-                </div>
-                <div class="row-8">
-                  <img id="comp_icon" style="width:40%;height:40%;"></img>
-                </div>
-              </div>
-              <div class="col">
-                <div class="row-4" style="padding-top:20px">
-                  <h6>Mood</h6>
-                </div>
-                <div class="row-8">
-                  <h5 id="mood"></h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mid_btn-wrapper">
-          <div class="mid_btn">
-            <button id="btn-save" class="btn btn-lg" style="margin-top:20px">Save Data</button>
-          </div>
-        </div>
-      <div class="bot-wrapper">
-        <div id = "div_history" style="border:2px solid white; width:30%">
-          <!-- <div class="calendar" id="calendar-app">
-            <div class="calendar--day-view" id="day-view">
-              <span class="day-view-exit" id="day-view-exit">&times;</span>
-              <span class="day-view-date" id="day-view-date">MAY 29 2016</span>
-              <div class="day-view-content">
-                <div class="day-highlight">
-                  You <span class="day-events" id="day-events">had no events for today</span>. &nbsp; <span tabindex="0" onkeyup="if(event.keyCode != 13) return; this.click();" class="day-events-link" id="add-event" data-date></span>
-                </div>
-                <div class="day-add-event" id="add-day-event-box" data-active="false">
-                  <div class="row">
-                    <div class="half">
-                      <label class="add-event-label">
-                         Name of event
-                        <input type="text" class="add-event-edit add-event-edit--long" placeholder="New event" id="input-add-event-name">
-
-                      </label>
-                    </div>
-                    <div class="qtr">
-                      <label class="add-event-label">
-                    Start Time
-                        <input type="text" class="add-event-edit" placeholder="8:15" id="input-add-event-start-time" data-options="1,2,3,4,5,6,7,8,9,10,11,12" data-format="datetime">
-                        <input type="text" class="add-event-edit" placeholder="am" id="input-add-event-start-ampm" data-options="a,p,am,pm">
-                      </label>
-                    </div>
-                    <div class="qtr">
-                      <label class="add-event-label">
-                    End Time
-                        <input type="text" class="add-event-edit" placeholder="9" id="input-add-event-end-time" data-options="1,2,3,4,5,6,7,8,9,10,11,12" data-format="datetime">
-                        <input type="text" class="add-event-edit" placeholder="am" id="input-add-event-end-ampm" data-options="a,p,am,pm">
-                      </label>
-                    </div>
-                    <div class="half">
-                      <a onkeyup="if(event.keyCode != 13) return; this.click();" tabindex="0" id="add-event-save" class="event-btn--save event-btn">save</a>
-                      <a tabindex="0" id="add-event-cancel" class="event-btn--cancel event-btn">cancel</a>
-                    </div>
-                  </div>
-
-                </div>
-                <div id="day-events-list" class="day-events-list">
-
-                </div>
-                <div class="day-inspiration-quote" id="inspirational-quote">
-                  Every child is an artist.  The problem is how to remain an artist once he grows up. –Pablo Picasso
-                </div>
-              </div>
-            </div>
-            <div class="calendar--view" id="calendar-view">
-              <div class="cview__month">
-                <span class="cview__month-last" id="calendar-month-last">Apr</span>
-                <span class="cview__month-current" id="calendar-month">May</span>
-                <span class="cview__month-next" id="calendar-month-next">Jun</span>
-              </div>
-              <div class="cview__header">Sun</div>
-              <div class="cview__header">Mon</div>
-              <div class="cview__header">Tue</div>
-              <div class="cview__header">Wed</div>
-              <div class="cview__header">Thu</div>
-              <div class="cview__header">Fri</div>
-              <div class="cview__header">Sat</div>
-              <div class="calendar--view" id="dates">
-              </div>
-            </div>
-            <div class="footer">
-              <span><span id="footer-date" class="footer__link">Today is May 30</span></span>
-            </div>
-          </div> -->
-        </div>
+      <div style="text-align:center">
+        <img id="home" style="width:auto; height:5vh; margin:30px" src="images/zodiac_icon.png"/>
       </div>
+      <div class="container" style="align-items:center">
+        <div class="row">
+            <div class="col" style="text-align:center">
+                <a style="margin-bottom:30px; font-size:2rem; font-weight:bold; text-transform:capitalize" id="header_user"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 field-label-responsive">
+            </div>
+            <div class="col" style="text-align:center; padding:15px">
+              <a id="date" style="font-size:1.2rem;"></a>
+              <hr style="width:100%; border:1.5px solid #ffffff"></hr>
+              <a id="icon_title" style="font-size:1.3rem; font-weight:bold; text-transform: capitalize"></a>
+              <div class="row">
+                <div class="col" style="height:100%;">
+                  <img id="icon" style="width:10vw;height:10vw; margin-bottom:15px; margin-top:15px; "></img>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <p id = "description" style="font-size:1.2rem; text-align:left"></p>
+                </div>
+              </div>
+              <div class = "row">
+                <div class="col">
+                  <div class="row-4" style="padding-top:20px">
+                    <a id="num_title" style="font-size:1.2rem; font-weight:bold"></a>
+                  </div>
+                  <div class="row-8">
+                    <a id="luckynum" style="font-size:1.2rem;"></a>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="row-4" style="padding-top:20px">
+                    <a id="comp_title" style="font-size:1.2rem; font-weight:bold"></a>
+                  </div>
+                  <div class="row-8">
+                    <img id="comp_icon" style="width:50%;height:50%;"></img>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="row-4" style="padding-top:20px">
+                    <a id="mood_title" style="font-size:1.2rem; font-weight:bold"></a>
+                  </div>
+                  <div class="row-8">
+                    <a id="mood" style="font-size:1.2rem;"></a>
+                  </div>
+                </div>
+              </div>
+              <hr style="width:100%; border:1.5px solid #ffffff"></hr>
+            </div>
+            <div class="col-md-2 field-label-responsive">
+            </div>
+        </div>
 
+        <div id="btn_out" class="mastfoot mt-auto" style="margin-bottom:3%">
+          <a href="/index.html" class="btn btn-secondary" style="margin-top:20px;">Sign Out</a>
+        </div>
 
-      <footer class="mastfoot mt-auto">
-        <a href="/index.html" class="btn btn-secondary" style="margin-top:20px">Sign Out</a>
-      </footer>
+        <div id="loader" class="loader text-center">
+            <span class="span"></span>
+        </div>
+
     </div>
 
 
+    <script>
+    let data;
+    function preload() {
+      const prefix = 'https://aztro.sameerkumar.website/?sign=';
+      const postfix = '&day=today'
+      const turls = prefix+sign+postfix;
+        fetch(turls, {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(json => {
+          // console.log(json);
+          data = json;
+          const loader = document.getElementById("loader");
+          loader.style.display = "none";
 
+          const icon_title = document.getElementById("icon_title");
+          const icon = document.getElementById("icon");
+          const description = document.getElementById('description');
+          const luckynum = document.getElementById('luckynum');
+          const comp_icon = document.getElementById('comp_icon');
+          const mood = document.getElementById('mood');
+          const date = document.getElementById('date');
+          const header = document.getElementById('header_user');
+
+          icon_title.innerHTML = sign;
+          header.innerHTML = id + "'s Daily Horoscope"
+          date.innerHTML = data.current_date;
+          icon.src = "images/icons/"+sign+".png";
+          description.innerHTML = data.description;
+          comp_icon.src = "images/icons/"+data.compatibility.toLowerCase()+".png";
+          mood.innerHTML = data.mood;
+          luckynum.innerHTML = data.lucky_number;
+
+          const num_title = document.getElementById("num_title");
+          const comp_title = document.getElementById("comp_title");
+          const mood_title = document.getElementById("mood_title");
+          comp_title.innerHTML="Compatibility";
+          mood_title.innerHTML="Mood"
+          if (is_mobile) {
+            const btn_out = document.getElementById("btn_out");
+            btn_out.style.marginBottom="5vh"
+            num_title.innerHTML="Number"
+            icon.style.width="10vh";
+            icon.style.height="10vh";
+          }
+          else {
+            num_title.innerHTML="Lucky Number"
+            icon.style.width="10vw";
+            icon.style.height="10vw";
+          }
+
+        });
+    }
+
+    preload();
+
+    </script>
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <!-- <script type="text/javascript" src="main.js"></script> -->
 
 
 
