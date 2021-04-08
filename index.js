@@ -38,6 +38,9 @@ app.get('/',(req,res)=>{   //app.get -> if some other computer sends 'get' with 
   res.render('index.html');
 })  //req = request 객채 , res = response 객채
 
+app.get('/horoscope',(req,res)=>{
+  res.redirect('/');
+})
 
 
 //APIs

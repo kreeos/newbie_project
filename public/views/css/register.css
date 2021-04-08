@@ -22,8 +22,13 @@ a {
 }
 
 .btn-register {
+  cursor: not-allowed;
   background-color: #ffffff;
   color: #000000;
+}
+
+.btn-register hover {
+
 }
 
 .btn-register-lg {
