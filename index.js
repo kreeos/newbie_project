@@ -8,7 +8,7 @@ var request = require('request');
 app.use(cors());
 app.use(express.static('static'));
 
-const API_PORT = 3000;
+const API_PORT = 8000;
 
 app.set('views','/Users/krislee/Documents/SPARCS/newbie/public/views');
 
